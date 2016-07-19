@@ -3,14 +3,15 @@ package org.chereshka.recipes.backend.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,11 +25,13 @@ public class Recipe implements JPAEntity {
 	private Long id;
 
 	private String name;
+
+	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<Nutrient> ingredients;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "AUTHOR_ID")
-	private User author;
+	private RecipeUser author;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateAdded;
@@ -63,11 +66,11 @@ public class Recipe implements JPAEntity {
 		this.ingredients = ingredients;
 	}
 
-	public User getAuthor() {
+	public RecipeUser getAuthor() {
 		return this.author;
 	}
 
-	public void setAuthor(final User author) {
+	public void setAuthor(final RecipeUser author) {
 		this.author = author;
 	}
 
