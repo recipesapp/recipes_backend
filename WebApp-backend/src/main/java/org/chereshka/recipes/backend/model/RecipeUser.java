@@ -3,6 +3,7 @@ package org.chereshka.recipes.backend.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +22,15 @@ public class RecipeUser implements JPAEntity {
 	private Integer age;
 	private Double height;
 
+	// mappedBy ??
+	@OneToMany
+	private List<Recipe> favorites;
+
 	@OneToMany(mappedBy = "author")
 	private List<Recipe> recipes;
+
+	@Enumerated
+	private Category category;
 
 	@Override
 	public Long getId() {
@@ -31,6 +39,22 @@ public class RecipeUser implements JPAEntity {
 
 	public void setId(final Long id) {
 		this.id = id;
+	}
+
+	public List<Recipe> getFavorites() {
+		return favorites;
+	}
+
+	public void setFavorites(List<Recipe> favorites) {
+		this.favorites = favorites;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public String getName() {

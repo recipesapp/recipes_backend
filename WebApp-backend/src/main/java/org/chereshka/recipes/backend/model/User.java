@@ -8,19 +8,52 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.chereshka.recipes.backend.persistence.JPAEntity;
+
 @Entity
-public class User {
+public class User implements JPAEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
 	private String hashAuth;
 	private String name;
 	private Integer age;
 	private Double height;
+	private boolean photo;
+	private String userInfo;
+
+	// mappedBy ??
+	@OneToMany
+	private List<Recipe> favorites;
 
 	@OneToMany(mappedBy = "author")
 	private List<Recipe> recipes;
+
+	public String getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(String userInfo) {
+		this.userInfo = userInfo;
+	}
+
+	public boolean isPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(boolean photo) {
+		this.photo = photo;
+	}
+
+	public List<Recipe> getFavorites() {
+		return favorites;
+	}
+
+	public void setFavorites(List<Recipe> favorites) {
+		this.favorites = favorites;
+	}
 
 	public Long getId() {
 		return this.id;

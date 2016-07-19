@@ -2,6 +2,7 @@ package org.chereshka.recipes.backend.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -25,6 +26,9 @@ public class Recipe implements JPAEntity {
 	private Long id;
 
 	private String name;
+	private Integer timeToCookMinutes;
+	private Map<User, Comments> comments;
+	private boolean photo;
 
 	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<Nutrient> ingredients;
@@ -35,11 +39,69 @@ public class Recipe implements JPAEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateAdded;
-
 	private Double servings;
 
 	@Enumerated
+	private Type type;
 	private Category category;
+	private Difficulty difficulty;
+	private StarRating starRating;
+
+	public Date getDateAdded() {
+		return dateAdded;
+	}
+
+	public void setDateAdded(Date dateAdded) {
+		this.dateAdded = dateAdded;
+	}
+
+	public StarRating getStarRating() {
+		return starRating;
+	}
+
+	public void setStarRating(StarRating starRating) {
+		this.starRating = starRating;
+	}
+
+	public Map<User, Comments> getComments() {
+		return comments;
+	}
+
+	public boolean isPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(boolean photo) {
+		this.photo = photo;
+	}
+
+	public void setComments(Map<User, Comments> comments) {
+		this.comments = comments;
+	}
+
+	public Integer getTimeToCookMinutes() {
+		return timeToCookMinutes;
+	}
+
+	public void setTimeToCookMinutes(Integer timeToCookMinutes) {
+		this.timeToCookMinutes = timeToCookMinutes;
+	}
+
+	public Difficulty getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(Difficulty difficulty) {
+		this.difficulty = difficulty;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
 
 	@Override
 	public Long getId() {

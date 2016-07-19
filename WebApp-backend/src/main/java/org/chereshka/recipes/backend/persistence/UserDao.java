@@ -1,10 +1,11 @@
 package org.chereshka.recipes.backend.persistence;
 
-import org.chereshka.recipes.backend.model.RecipeUser;
+import org.chereshka.recipes.backend.model.User;
 
-public class UserDao extends BasicDao<RecipeUser> {
+public class UserDao extends BasicDao<User> {
 
 	public UserDao() {
-		super(EntityManagerProvider.getInstance(), RecipeUser.class);
+		super(EntityManagerProvider.getInstance(), User.class);
 	}
+
 }
