@@ -87,7 +87,7 @@
 		<slf4j.simple.version>1.6.1</slf4j.simple.version>
 		<cxf.version>3.0.3</cxf.version>
 		<org.codehaus.jackson-version>1.9.9</org.codehaus.jackson-version>
-		<cloudsdk.version>2.44.5</cloudsdk.version>
+		<cloudsdk.version>2.54.6</cloudsdk.version>
 		<javax.persistence.version>2.1.0</javax.persistence.version>
 		<eclipselink.version>2.5.1</eclipselink.version>
 		<gson.version>2.2.2</gson.version>
