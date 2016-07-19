@@ -1,0 +1,34 @@
+Add recipe difficulty, time to cook, photo, alergies, rating and comments
+
+Screen 1
+Sign up - {"user":.., "password": hash}
+Log in - same
+Search - {"recipeName" : ..., "user": .., "type": .., "category": ..., etc.} 
+GetAll {"maxRecipes": 20}
+
+Screen 2
+getUser {"userName" : ..}
+
+Screen 3
+reuse response from screen 2
+
+Screen 3.1
+add {"recipe" : Recipe}
+
+Screen 4
+get {"user": .., "category":..}
+
+Screen 5
+as 4 but /favorites
+
+Screen 6
+getRecipe {"recipeId": ..}
+
+Screen 7
+as screen 1 search
+
+Screen 8
+as screen 4
+
+Screen 9
+reuse from screen 2
