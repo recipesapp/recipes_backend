@@ -21,9 +21,11 @@ public class User implements JPAEntity {
 	private String name;
 	private Integer age;
 	private Double height;
-	private boolean photo;
 	private String userInfo;
+	private boolean photo;
 
+	//private Map<Difficulty, Recipe>;
+	
 	// mappedBy ??
 	@OneToMany
 	private List<Recipe> favorites;
