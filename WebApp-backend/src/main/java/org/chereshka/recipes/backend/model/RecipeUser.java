@@ -17,12 +17,12 @@ public class RecipeUser implements JPAEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	// ?
 	private String hashAuth;
 	private String name;
 	private Integer age;
 	private Double height;
 
-	// mappedBy ??
 	@OneToMany
 	private List<Recipe> favorites;
 

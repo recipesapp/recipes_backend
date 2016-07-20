@@ -3,6 +3,7 @@ package org.chereshka.recipes.backend.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,6 +25,9 @@ public class User implements JPAEntity {
 	private String userInfo;
 	private Photo photo;
 
+	@Enumerated
+	private Difficulty difficulty;
+
 	// private Map<Difficulty, Recipe>;
 
 	// mappedBy ??
@@ -32,6 +36,18 @@ public class User implements JPAEntity {
 
 	@OneToMany(mappedBy = "author")
 	private List<Recipe> recipes;
+
+	public Difficulty getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(Difficulty difficulty) {
+		this.difficulty = difficulty;
+	}
+
+	public Photo getPhoto() {
+		return photo;
+	}
 
 	public String getUserInfo() {
 		return userInfo;

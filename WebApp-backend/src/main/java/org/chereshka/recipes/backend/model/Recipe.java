@@ -25,13 +25,14 @@ public class Recipe implements JPAEntity {
 	private Long id;
 
 	private String name;
-	private Integer timeToCookMinutes;
-	private List<Comments> comments;
-	private List<Allergens> allergens;
+	private Double timeToCookMinutes;
 	private Photo photo;
+	private String instructions;
 
 	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<Nutrient> ingredients;
+	private List<Comments> comments;
+	private List<Allergens> allergens;
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "AUTHOR_ID")
@@ -46,6 +47,18 @@ public class Recipe implements JPAEntity {
 	private Category category;
 	private Difficulty difficulty;
 	private StarRating starRating;
+
+	public String getInstructions() {
+		return instructions;
+	}
+
+	public void setInstructions(String instructions) {
+		this.instructions = instructions;
+	}
+
+	public Photo getPhoto() {
+		return photo;
+	}
 
 	public List<Allergens> getAllergens() {
 		return allergens;
@@ -71,6 +84,10 @@ public class Recipe implements JPAEntity {
 		this.starRating = starRating;
 	}
 
+	public void setComments(List<Comments> comments) {
+		this.comments = comments;
+	}
+
 	public List<Comments> getComments() {
 		return comments;
 	}
@@ -83,15 +100,11 @@ public class Recipe implements JPAEntity {
 		this.photo = photo;
 	}
 
-	public void setComments(List<Comments> comments) {
-		this.comments = comments;
-	}
-
-	public Integer getTimeToCookMinutes() {
+	public Double getTimeToCookMinutes() {
 		return timeToCookMinutes;
 	}
 
-	public void setTimeToCookMinutes(Integer timeToCookMinutes) {
+	public void setTimeToCookMinutes(Double timeToCookMinutes) {
 		this.timeToCookMinutes = timeToCookMinutes;
 	}
 
