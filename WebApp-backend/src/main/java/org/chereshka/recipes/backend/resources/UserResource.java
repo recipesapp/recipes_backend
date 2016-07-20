@@ -40,11 +40,11 @@ public class UserResource {
 		return Response.status(Status.CREATED).build();
 	}
 
-	// @POSTT
-	// @Consumes(MediaType.APPLICATION_JSON)
-	// public Response create(final User user, final Long password) {
-	// final User createUser = new UserDao().create(user, password);
-	// return Response.status(Status.CREATED).build();
-	// }
+	@GET
+	@Path("{password}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User getUserByHashAuth(@PathParam("password") final String hashAuth) {
+		return new UserDao().getByName(hashAuth);
+	}
 
 }

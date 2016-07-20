@@ -210,5 +210,20 @@ public class BasicDao<T extends JPAEntity> {
 		return found;
 	}
 
+	public T getByHashAuth(final String hashAuth) {
+		final EntityManager em = this.emProvider.get();
+		return this.getByHashAuth(hashAuth, em);
+	}
+
+	private T getByHashAuth(final String hashAuth, final EntityManager em) {
+		T found = null;
+		try {
+			found = em.find(this.clazz, hashAuth);
+		} catch (final IllegalArgumentException e) {
+			return null;
+		}
+		return found;
+	}
+
 	// end
 }
