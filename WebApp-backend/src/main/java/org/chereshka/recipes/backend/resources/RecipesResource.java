@@ -25,13 +25,20 @@ public class RecipesResource {
 	@Path("{all}")
 	// ?
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Recipe> getAllRecipes() {
+	public List<Recipe> getAllRecipes20() {
 		List<Recipe> limitingToTwenty = new RecipesDao().getAll();
 		if (limitingToTwenty.size() > 20) {
 			limitingToTwenty = limitingToTwenty.subList(
 					limitingToTwenty.size() - 20, limitingToTwenty.size());
 		}
 		return limitingToTwenty;
+	}
+
+	@GET
+	@Path("{allrecipes}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Recipe> getAllRecipes() {
+		return new RecipesDao().getAll();
 	}
 
 	@POST
