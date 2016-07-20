@@ -2,7 +2,7 @@ package org.chereshka.recipes.backend.resources;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -32,8 +32,7 @@ public class UserResource {
 		return new UserDao().getByName(name);
 	}
 
-	// @PUT
-	@POST
+	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response create(final User user) {
 		final User createUser = new UserDao().create(user);

@@ -9,6 +9,7 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import org.chereshka.recipes.backend.model.Category;
 import org.chereshka.recipes.backend.model.Difficulty;
+import org.chereshka.recipes.backend.model.Recipe;
 import org.chereshka.recipes.backend.model.StarRating;
 import org.chereshka.recipes.backend.model.Type;
 
@@ -114,7 +115,6 @@ public class BasicDao<T extends JPAEntity> {
 		} catch (final IllegalArgumentException e) {
 			return null;
 		}
-
 		return found;
 	}
 
@@ -133,12 +133,12 @@ public class BasicDao<T extends JPAEntity> {
 		return found;
 	}
 
-	public T getByFavorites(final List list) {
+	public T getByFavorites(final List<Recipe> list) {
 		final EntityManager em = this.emProvider.get();
 		return this.getByFavorites(list, em);
 	}
 
-	private T getByFavorites(final List list, final EntityManager em) {
+	private T getByFavorites(final List<Recipe> list, final EntityManager em) {
 		T found = null;
 		try {
 			found = em.find(this.clazz, list);

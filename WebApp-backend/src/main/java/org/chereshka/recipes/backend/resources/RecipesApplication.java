@@ -14,6 +14,11 @@ public class RecipesApplication extends Application {
 		final Set<Object> resources = new HashSet<>();
 		resources.add(new JacksonJsonProvider());
 		resources.add(new RecipesResource());
+		resources.add(new UserRecipeReadResource());
+		resources.add(new UserResource());
+		resources.add(new AddExampleResources().createRecipe());
+		resources.add(new AddExampleResources().createRecipeUser());
+		resources.add(new AddExampleResources().createUser());
 		return resources;
 	}
 }

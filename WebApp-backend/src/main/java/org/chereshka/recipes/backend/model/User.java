@@ -22,10 +22,10 @@ public class User implements JPAEntity {
 	private Integer age;
 	private Double height;
 	private String userInfo;
-	private boolean photo;
+	private Photo photo;
 
-	//private Map<Difficulty, Recipe>;
-	
+	// private Map<Difficulty, Recipe>;
+
 	// mappedBy ??
 	@OneToMany
 	private List<Recipe> favorites;
@@ -41,11 +41,11 @@ public class User implements JPAEntity {
 		this.userInfo = userInfo;
 	}
 
-	public boolean isPhoto() {
+	public Photo isPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(boolean photo) {
+	public void setPhoto(Photo photo) {
 		this.photo = photo;
 	}
 
