@@ -21,6 +21,7 @@ import org.chereshka.recipes.backend.persistence.RecipesDao;
 @Path("/recipes")
 public class RecipesResource {
 
+	//v dao
 	@GET
 	@Path("{all}")
 	@Produces(MediaType.APPLICATION_JSON)
