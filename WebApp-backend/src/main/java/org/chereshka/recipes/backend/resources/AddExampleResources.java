@@ -12,14 +12,16 @@ import org.chereshka.recipes.backend.model.Category;
 import org.chereshka.recipes.backend.model.Comments;
 import org.chereshka.recipes.backend.model.Difficulty;
 import org.chereshka.recipes.backend.model.Nutrient;
+import org.chereshka.recipes.backend.model.Person;
 import org.chereshka.recipes.backend.model.Recipe;
 import org.chereshka.recipes.backend.model.RecipeUser;
 import org.chereshka.recipes.backend.model.StarRating;
 import org.chereshka.recipes.backend.model.Type;
-import org.chereshka.recipes.backend.model.User;
 import org.chereshka.recipes.backend.persistence.RecipeUserDao;
 import org.chereshka.recipes.backend.persistence.RecipesDao;
 import org.chereshka.recipes.backend.persistence.UserDao;
+
+import com.sap.security.um.user.User;
 
 @Path("/test")
 public class AddExampleResources {
@@ -32,7 +34,7 @@ public class AddExampleResources {
 			comment.setComments("Vkusna supa");
 			comment.setDate(new Date());
 			comment.setStarRating(StarRating.FOUR_STAR);
-			User pesho = new User();
+			Person pesho = new Person();
 			pesho.setName("Pesho");
 			comment.setUser(pesho);
 			comments.add(comment);
@@ -42,7 +44,7 @@ public class AddExampleResources {
 			comment.setComments("Vkusna mandja");
 			comment.setDate(new Date());
 			comment.setStarRating(StarRating.ONE_STAR);
-			User doncho = new User();
+			Person doncho = new Person();
 			doncho.setName("Pesho");
 			comment.setUser(doncho);
 			comments.add(comment);
@@ -120,8 +122,8 @@ public class AddExampleResources {
 		return recipeUser;
 	}
 
-	private User user() {
-		User user = new User();
+	private Person user() {
+		Person user = new Person();
 		user.setAge(18);
 		user.setHeight(19.35);
 		user.setName("Vankata");
@@ -134,16 +136,19 @@ public class AddExampleResources {
 	}
 
 	@GET
+	@Path("{recipe}")
 	public void createRecipe() {
 		new RecipesDao().create(recipe());
 	}
 
 	@GET
+	@Path("{recipeuser}")
 	public void createUserRecipe() {
 		new RecipeUserDao().create(recipeUser());
 	}
 
 	@GET
+	@Path("{user}")
 	public void createUser() {
 		new UserDao().create(user());
 	}

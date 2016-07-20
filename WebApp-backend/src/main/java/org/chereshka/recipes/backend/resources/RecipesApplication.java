@@ -17,8 +17,6 @@ public class RecipesApplication extends Application {
 		resources.add(new UserRecipeReadResource());
 		resources.add(new UserResource());
 		resources.add(new AddExampleResources());
-		// resources.add(new AddExampleResources().createUser());
-		// resources.add(new AddExampleResources().createRecipeUser());
 		return resources;
 	}
 }

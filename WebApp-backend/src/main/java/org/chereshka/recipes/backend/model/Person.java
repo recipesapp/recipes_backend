@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import org.chereshka.recipes.backend.persistence.JPAEntity;
 
 @Entity
-public class User implements JPAEntity {
+public class Person implements JPAEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

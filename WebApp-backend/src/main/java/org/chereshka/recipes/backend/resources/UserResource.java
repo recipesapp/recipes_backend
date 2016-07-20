@@ -10,8 +10,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.chereshka.recipes.backend.model.Person;
 import org.chereshka.recipes.backend.model.RecipeUser;
-import org.chereshka.recipes.backend.model.User;
 import org.chereshka.recipes.backend.persistence.RecipeUserDao;
 import org.chereshka.recipes.backend.persistence.UserDao;
 
@@ -28,21 +28,21 @@ public class UserResource {
 	@GET
 	@Path("{name}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public User getUserByName(@PathParam("name") final String name) {
+	public Person getUserByName(@PathParam("name") final String name) {
 		return new UserDao().getByName(name);
 	}
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response create(final User user) {
-		final User createUser = new UserDao().create(user);
+	public Response create(final Person user) {
+		final Person createUser = new UserDao().create(user);
 		return Response.status(Status.CREATED).build();
 	}
 
 	@GET
 	@Path("{password}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public User getUserByHashAuth(@PathParam("password") final String hashAuth) {
+	public Person getUserByHashAuth(@PathParam("password") final String hashAuth) {
 		return new UserDao().getByName(hashAuth);
 	}
 

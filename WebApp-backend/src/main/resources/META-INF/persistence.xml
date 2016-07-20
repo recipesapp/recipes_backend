@@ -7,7 +7,7 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>org.chereshka.recipes.backend.model.Recipe</class>
 		<class>org.chereshka.recipes.backend.model.RecipeUser</class>
-		<class>org.chereshka.recipes.backend.model.User</class>
+		<class>org.chereshka.recipes.backend.model.Person</class>
 		<class>org.chereshka.recipes.backend.model.Allergens</class>
 		<class>org.chereshka.recipes.backend.model.Nutrient</class>
 		<properties>

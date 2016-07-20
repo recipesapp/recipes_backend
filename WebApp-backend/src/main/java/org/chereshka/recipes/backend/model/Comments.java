@@ -6,7 +6,7 @@ import javax.persistence.Enumerated;
 
 public class Comments {
 
-	private User user;
+	private Person user;
 	private String comments;
 	private Date date;
 
@@ -37,11 +37,11 @@ public class Comments {
 		this.comments = comments;
 	}
 
-	public User getUser() {
+	public Person getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Person user) {
 		this.user = user;
 	}
 
