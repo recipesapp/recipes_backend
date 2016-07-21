@@ -11,8 +11,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import org.chereshka.recipes.backend.model.Person;
-import org.chereshka.recipes.backend.model.RecipeUser;
-import org.chereshka.recipes.backend.persistence.RecipeUserDao;
+import org.chereshka.recipes.backend.persistence.PersonDao;
 import org.chereshka.recipes.backend.persistence.UserDao;
 
 @Path("/user")
@@ -21,8 +20,8 @@ public class UserResource {
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public RecipeUser getUserById(@PathParam("id") final Long id) {
-		return new RecipeUserDao().getById(id);
+	public Person getUserById(@PathParam("id") final Long id) {
+		return new PersonDao().getById(id);
 	}
 
 	@GET

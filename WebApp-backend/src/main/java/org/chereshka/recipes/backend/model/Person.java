@@ -3,7 +3,6 @@ package org.chereshka.recipes.backend.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,56 +22,48 @@ public class Person implements JPAEntity {
 	private Integer age;
 	private Double height;
 	private String userInfo;
+
 	private Photo photo;
 
-	@Enumerated
-	private Difficulty difficulty;
-
-	// private Map<Difficulty, Recipe>;
-
-	// mappedBy ??
-	@OneToMany
+	@OneToMany(mappedBy = "favoritedBy")
 	private List<Recipe> favorites;
 
 	@OneToMany(mappedBy = "author")
 	private List<Recipe> recipes;
 
-	public Difficulty getDifficulty() {
-		return difficulty;
-	}
+	@OneToMany(mappedBy = "user")
+	private List<Comment> comments;
 
-	public void setDifficulty(Difficulty difficulty) {
-		this.difficulty = difficulty;
-	}
 
 	public Photo getPhoto() {
-		return photo;
+		return this.photo;
 	}
 
 	public String getUserInfo() {
-		return userInfo;
+		return this.userInfo;
 	}
 
-	public void setUserInfo(String userInfo) {
+	public void setUserInfo(final String userInfo) {
 		this.userInfo = userInfo;
 	}
 
 	public Photo isPhoto() {
-		return photo;
+		return this.photo;
 	}
 
-	public void setPhoto(Photo photo) {
+	public void setPhoto(final Photo photo) {
 		this.photo = photo;
 	}
 
 	public List<Recipe> getFavorites() {
-		return favorites;
+		return this.favorites;
 	}
 
-	public void setFavorites(List<Recipe> favorites) {
+	public void setFavorites(final List<Recipe> favorites) {
 		this.favorites = favorites;
 	}
 
+	@Override
 	public Long getId() {
 		return this.id;
 	}

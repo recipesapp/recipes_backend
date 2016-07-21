@@ -9,34 +9,34 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.chereshka.recipes.backend.model.Category;
+import org.chereshka.recipes.backend.model.Person;
 import org.chereshka.recipes.backend.model.Recipe;
-import org.chereshka.recipes.backend.model.RecipeUser;
 import org.chereshka.recipes.backend.model.Type;
-import org.chereshka.recipes.backend.persistence.RecipeUserDao;
+import org.chereshka.recipes.backend.persistence.PersonDao;
 
 public class UserRecipeReadResource {
 
 	@GET
 	@Path("{category}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public RecipeUser getRecipeByCategory(
+	public Person getRecipeByCategory(
 			@PathParam("category") final Category category) {
-		return new RecipeUserDao().getByCategory(category);
+		return new PersonDao().getByCategory(category);
 	}
 
 	@GET
 	@Path("{type}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public RecipeUser getRecipeByType(@PathParam("type") final Type type) {
-		return new RecipeUserDao().getByType(type);
+	public Person getRecipeByType(@PathParam("type") final Type type) {
+		return new PersonDao().getByType(type);
 	}
 
 	@GET
 	@Path("{favorites}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public RecipeUser getRecipeByFavourites(
+	public Person getRecipeByFavourites(
 			@PathParam("favorites") final List<Recipe> list) {
-		return new RecipeUserDao().getByFavorites(list);
+		return new PersonDao().getByFavorites(list);
 	}
 
 }

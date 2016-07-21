@@ -29,14 +29,20 @@ public class Recipe implements JPAEntity {
 	private Photo photo;
 	private String instructions;
 
-	@OneToMany(cascade = CascadeType.PERSIST)
+	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
 	private List<Nutrient> ingredients;
-	private List<Comments> comments;
+	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
+	private List<Comment> comments;
+	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
 	private List<Allergens> allergens;
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "AUTHOR_ID")
-	private RecipeUser author;
+	private Person author;
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "FAVORITED_PERSON_ID")
+	private Person favoritedBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateAdded;
@@ -44,83 +50,85 @@ public class Recipe implements JPAEntity {
 
 	@Enumerated
 	private Type type;
+	@Enumerated
 	private Category category;
+	@Enumerated
 	private Difficulty difficulty;
-	private StarRating starRating;
+	private Double starRating;
 
 	public String getInstructions() {
-		return instructions;
+		return this.instructions;
 	}
 
-	public void setInstructions(String instructions) {
+	public void setInstructions(final String instructions) {
 		this.instructions = instructions;
 	}
 
 	public Photo getPhoto() {
-		return photo;
+		return this.photo;
 	}
 
 	public List<Allergens> getAllergens() {
-		return allergens;
+		return this.allergens;
 	}
 
-	public void setAllergens(List<Allergens> allergens) {
+	public void setAllergens(final List<Allergens> allergens) {
 		this.allergens = allergens;
 	}
 
 	public Date getDateAdded() {
-		return dateAdded;
+		return this.dateAdded;
 	}
 
-	public void setDateAdded(Date dateAdded) {
+	public void setDateAdded(final Date dateAdded) {
 		this.dateAdded = dateAdded;
 	}
 
-	public StarRating getStarRating() {
-		return starRating;
+	public Double getStarRating() {
+		return this.starRating;
 	}
 
-	public void setStarRating(StarRating starRating) {
+	public void setStarRating(final Double starRating) {
 		this.starRating = starRating;
 	}
 
-	public void setComments(List<Comments> comments) {
+	public void setComments(final List<Comment> comments) {
 		this.comments = comments;
 	}
 
-	public List<Comments> getComments() {
-		return comments;
+	public List<Comment> getComments() {
+		return this.comments;
 	}
 
 	public Photo isPhoto() {
-		return photo;
+		return this.photo;
 	}
 
-	public void setPhoto(Photo photo) {
+	public void setPhoto(final Photo photo) {
 		this.photo = photo;
 	}
 
 	public Double getTimeToCookMinutes() {
-		return timeToCookMinutes;
+		return this.timeToCookMinutes;
 	}
 
-	public void setTimeToCookMinutes(Double timeToCookMinutes) {
+	public void setTimeToCookMinutes(final Double timeToCookMinutes) {
 		this.timeToCookMinutes = timeToCookMinutes;
 	}
 
 	public Difficulty getDifficulty() {
-		return difficulty;
+		return this.difficulty;
 	}
 
-	public void setDifficulty(Difficulty difficulty) {
+	public void setDifficulty(final Difficulty difficulty) {
 		this.difficulty = difficulty;
 	}
 
 	public Type getType() {
-		return type;
+		return this.type;
 	}
 
-	public void setType(Type type) {
+	public void setType(final Type type) {
 		this.type = type;
 	}
 
@@ -149,11 +157,11 @@ public class Recipe implements JPAEntity {
 		this.ingredients = ingredients;
 	}
 
-	public RecipeUser getAuthor() {
+	public Person getAuthor() {
 		return this.author;
 	}
 
-	public void setAuthor(final RecipeUser author) {
+	public void setAuthor(final Person author) {
 		this.author = author;
 	}
 
