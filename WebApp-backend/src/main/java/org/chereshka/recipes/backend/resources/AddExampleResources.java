@@ -130,7 +130,7 @@ public class AddExampleResources {
 	}
 
 	@GET
-	@Path("createRecipe")
+	@Path("/createRecipe")
 	public void createRecipe() {
 		new RecipesDao().create(this.recipe());
 	}
@@ -142,7 +142,7 @@ public class AddExampleResources {
 	}
 
 	@GET
-	@Path("{user}")
+	@Path("/createUser")
 	public void createUser() {
 		new UserDao().create(this.user());
 	}
