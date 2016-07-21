@@ -47,6 +47,7 @@ public class UserResource {
 				.getFavoriteUserRecipes(id);
 		for (final Recipe recipe : favoriteUserRecipes) {
 			if (recipe.getCategory().toString().equalsIgnoreCase(category)) {
+				System.out.println(recipe.getCategory().toString());
 				recipesWithCategory.add(recipe);
 			}
 		}

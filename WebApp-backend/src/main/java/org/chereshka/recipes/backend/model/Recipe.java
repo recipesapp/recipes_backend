@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -26,6 +27,8 @@ public class Recipe implements JPAEntity {
 
 	private String name;
 	private Double timeToCookMinutes;
+
+	@Column(length = 1000)
 	private String instructions;
 
 	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
@@ -62,7 +65,6 @@ public class Recipe implements JPAEntity {
 	public void setInstructions(final String instructions) {
 		this.instructions = instructions;
 	}
-
 
 	public List<Allergens> getAllergens() {
 		return this.allergens;

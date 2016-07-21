@@ -64,7 +64,8 @@ public class AddExampleResources {
 		final Recipe musaka = new Recipe();
 		musaka.setCategory(Category.MAIN);
 		musaka.setIngredients(musakaIngredients());
-		// musaka.setInstructions("Obelvate i narqzvate kartofite na kubcheta. Postavqte gi v dulboka tava. Na predvaritelno zagrqt tigan zapurjvate luka i kaimata. Dobavqte domatenoto piure, sol i cheren piper na vkus i zapurjvate za oshte nqkolko minuti (3-5). Dobavqte kum tavata s kartofite, razburkvate i slagate v predvaritelno zagrqta furna na 200-250 gradusa. Sled kato kartofite pridobiqt kafenikav ten zalivate sus zalivkata i dopichate. Prigotvqne na zalivkata: razbivate dobre qicata, sled kato sa dobre razbiti pribavqme kiseloto mlqko. Razkurkvate dobre. Ako e mnogo gusta moje da dobavite voda.");
+		String instructions = "Obelvate i narqzvate kartofite na kubcheta. Postavqte gi v dulboka tava. Na predvaritelno zagrqt tigan zapurjvate luka i kaimata. Dobavqte domatenoto piure, sol i cheren piper na vkus i zapurjvate za oshte nqkolko minuti (3-5). Dobavqte kum tavata s kartofite, razburkvate i slagate v predvaritelno zagrqta furna na 200-250 gradusa. Sled kato kartofite pridobiqt kafenikav ten zalivate sus zalivkata i dopichate. Prigotvqne na zalivkata: razbivate dobre qicata, sled kato sa dobre razbiti pribavqme kiseloto mlqko. Razkurkvate dobre. Ako e mnogo gusta moje da dobavite voda.";
+		musaka.setInstructions(instructions);
 		musaka.setName("Musaka");
 		musaka.setServings(5d);
 		musaka.setTimeToCookMinutes(90d);
@@ -77,8 +78,8 @@ public class AddExampleResources {
 		final Recipe orizSMeso = new Recipe();
 		orizSMeso.setCategory(Category.MAIN);
 		orizSMeso.setIngredients(orizSMesoIngredients());
-		// orizSMeso
-		// .setInstructions("Svinskoto meso se narqzva na kubcheta i se zapurjva v malko olio. Dobavqt se narqzanite sitno luk i nasturganiqt morkov. Posolqva se, dobavq se voda i se ostavq da vri do gotovnost. Dobavq se orizut,ovkusq se s podpravki i se prehvurlq v namaslena tava. Zapicha se v umerena furna do poemane na vodata ot oriza.");
+		String instructions = "Svinskoto meso se narqzva na kubcheta i se zapurjva v malko olio. Dobavqt se narqzanite sitno luk i nasturganiqt morkov. Posolqva se, dobavq se voda i se ostavq da vri do gotovnost. Dobavq se orizut,ovkusq se s podpravki i se prehvurlq v namaslena tava. Zapicha se v umerena furna do poemane na vodata ot oriza.";
+		orizSMeso.setInstructions(instructions);
 		orizSMeso.setName("Oriz s meso");
 		orizSMeso.setServings(6d);
 		orizSMeso.setTimeToCookMinutes(90d);
@@ -137,8 +138,8 @@ public class AddExampleResources {
 		final Recipe spaghetti = new Recipe();
 		spaghetti.setCategory(Category.MAIN);
 		spaghetti.setIngredients(spaghettiIngredients());
-		// spaghetti
-		// .setInstructions("Spagetite se varqt v podsolena voda, kogato sa gotovi se otcejdat. V tendjerka se zapurjva lukut do zlatisto, posle se dobavq natroshenata kaima. Dobavqt se podpravkite i se razburkvat. Domatite se obelvat i se nasturgvat pri kaimata. Burka se i se vari do sgustqvane. Spagetite se zalivat sus sosa i se servirat.");
+		String instructions = "Spagetite se varqt v podsolena voda, kogato sa gotovi se otcejdat. V tendjerka se zapurjva lukut do zlatisto, posle se dobavq natroshenata kaima. Dobavqt se podpravkite i se razburkvat. Domatite se obelvat i se nasturgvat pri kaimata. Burka se i se vari do sgustqvane. Spagetite se zalivat sus sosa i se servirat.";
+		spaghetti.setInstructions(instructions);
 		spaghetti.setName("Spaghetti");
 		spaghetti.setServings(1d);
 		spaghetti.setTimeToCookMinutes(30d);
