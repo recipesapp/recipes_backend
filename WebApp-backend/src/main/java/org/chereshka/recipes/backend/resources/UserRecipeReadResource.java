@@ -14,6 +14,7 @@ import org.chereshka.recipes.backend.model.Recipe;
 import org.chereshka.recipes.backend.model.Type;
 import org.chereshka.recipes.backend.persistence.PersonDao;
 
+@Path("/userread")
 public class UserRecipeReadResource {
 
 	@GET

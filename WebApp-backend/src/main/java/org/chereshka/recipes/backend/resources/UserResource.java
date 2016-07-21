@@ -16,7 +16,6 @@ import javax.ws.rs.core.Response.Status;
 import org.chereshka.recipes.backend.model.Person;
 import org.chereshka.recipes.backend.model.Recipe;
 import org.chereshka.recipes.backend.persistence.PersonDao;
-import org.chereshka.recipes.backend.persistence.UserDao;
 
 @Path("/user")
 public class UserResource {
@@ -32,7 +31,7 @@ public class UserResource {
 	@GET
 	@Path("{id}/favorites")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Recipe> getFavoriteUserRecipes(@PathParam("id") final Long id){
+	public List<Recipe> getFavoriteUserRecipes(@PathParam("id") final Long id) {
 		final Person person = new PersonDao().getById(id);
 		return person.getFavorites();
 	}
@@ -40,11 +39,14 @@ public class UserResource {
 	@GET
 	@PathParam("{id}/favorites/{category}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Recipe> getFavoriteUserRecipesByCategory(@PathParam("id") final Long id, @PathParam("category") final String category){
+	public List<Recipe> getFavoriteUserRecipesByCategory(
+			@PathParam("id") final Long id,
+			@PathParam("category") final String category) {
 		final List<Recipe> recipesWithCategory = new ArrayList<>();
-		final List<Recipe> favoriteUserRecipes = this.getFavoriteUserRecipes(id);
-		for(final Recipe recipe : favoriteUserRecipes){
-			if(recipe.getCategory().toString().equalsIgnoreCase(category)){
+		final List<Recipe> favoriteUserRecipes = this
+				.getFavoriteUserRecipes(id);
+		for (final Recipe recipe : favoriteUserRecipes) {
+			if (recipe.getCategory().toString().equalsIgnoreCase(category)) {
 				recipesWithCategory.add(recipe);
 			}
 		}
@@ -54,7 +56,7 @@ public class UserResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response create(final Person user) {
-		new UserDao().create(user);
+		new PersonDao().create(user);
 		return Response.status(Status.CREATED).build();
 	}
 }

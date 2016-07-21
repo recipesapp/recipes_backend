@@ -2,6 +2,7 @@ package org.chereshka.recipes.backend.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,21 +24,14 @@ public class Person implements JPAEntity {
 	private Double height;
 	private String userInfo;
 
-	private Photo photo;
-
-	@OneToMany(mappedBy = "favoritedBy")
+	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "favoritedBy")
 	private List<Recipe> favorites;
 
-	@OneToMany(mappedBy = "author")
+	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "author")
 	private List<Recipe> recipes;
 
-	@OneToMany(mappedBy = "user")
+	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
 	private List<Comment> comments;
-
-
-	public Photo getPhoto() {
-		return this.photo;
-	}
 
 	public String getUserInfo() {
 		return this.userInfo;
@@ -45,14 +39,6 @@ public class Person implements JPAEntity {
 
 	public void setUserInfo(final String userInfo) {
 		this.userInfo = userInfo;
-	}
-
-	public Photo isPhoto() {
-		return this.photo;
-	}
-
-	public void setPhoto(final Photo photo) {
-		this.photo = photo;
 	}
 
 	public List<Recipe> getFavorites() {

@@ -26,7 +26,6 @@ public class Recipe implements JPAEntity {
 
 	private String name;
 	private Double timeToCookMinutes;
-	private Photo photo;
 	private String instructions;
 
 	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
@@ -64,9 +63,6 @@ public class Recipe implements JPAEntity {
 		this.instructions = instructions;
 	}
 
-	public Photo getPhoto() {
-		return this.photo;
-	}
 
 	public List<Allergens> getAllergens() {
 		return this.allergens;
@@ -98,14 +94,6 @@ public class Recipe implements JPAEntity {
 
 	public List<Comment> getComments() {
 		return this.comments;
-	}
-
-	public Photo isPhoto() {
-		return this.photo;
-	}
-
-	public void setPhoto(final Photo photo) {
-		this.photo = photo;
 	}
 
 	public Double getTimeToCookMinutes() {
