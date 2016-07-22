@@ -1,5 +1,6 @@
 package org.chereshka.recipes.backend.resources;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,7 +12,6 @@ import org.chereshka.recipes.backend.model.Nutrient;
 import org.chereshka.recipes.backend.model.Person;
 import org.chereshka.recipes.backend.model.Recipe;
 import org.chereshka.recipes.backend.model.Type;
-import org.chereshka.recipes.backend.persistence.PersonDao;
 import org.chereshka.recipes.backend.persistence.RecipesDao;
 
 @Path("/test")
@@ -59,12 +59,11 @@ public class AddExampleResources {
 	// return allergens;
 	// }
 
-	// gotovo?
-	private Recipe recipeMusaka() {
+	private Recipe musaka(){
 		final Recipe musaka = new Recipe();
 		musaka.setCategory(Category.MAIN);
-		musaka.setIngredients(musakaIngredients());
-		String instructions = "Obelvate i narqzvate kartofite na kubcheta. Postavqte gi v dulboka tava. Na predvaritelno zagrqt tigan zapurjvate luka i kaimata. Dobavqte domatenoto piure, sol i cheren piper na vkus i zapurjvate za oshte nqkolko minuti (3-5). Dobavqte kum tavata s kartofite, razburkvate i slagate v predvaritelno zagrqta furna na 200-250 gradusa. Sled kato kartofite pridobiqt kafenikav ten zalivate sus zalivkata i dopichate. Prigotvqne na zalivkata: razbivate dobre qicata, sled kato sa dobre razbiti pribavqme kiseloto mlqko. Razkurkvate dobre. Ako e mnogo gusta moje da dobavite voda.";
+		musaka.setIngredients(this.musakaIngredients());
+		final String instructions = "Obelvate i narqzvate kartofite na kubcheta. Postavqte gi v dulboka tava. Na predvaritelno zagrqt tigan zapurjvate luka i kaimata. Dobavqte domatenoto piure, sol i cheren piper na vkus i zapurjvate za oshte nqkolko minuti (3-5). Dobavqte kum tavata s kartofite, razburkvate i slagate v predvaritelno zagrqta furna na 200-250 gradusa. Sled kato kartofite pridobiqt kafenikav ten zalivate sus zalivkata i dopichate. Prigotvqne na zalivkata: razbivate dobre qicata, sled kato sa dobre razbiti pribavqme kiseloto mlqko. Razkurkvate dobre. Ako e mnogo gusta moje da dobavite voda.";
 		musaka.setInstructions(instructions);
 		musaka.setName("Musaka");
 		musaka.setServings(5d);
@@ -73,12 +72,17 @@ public class AddExampleResources {
 		return musaka;
 	}
 
-	// gotovo?
-	private Recipe recipeOrizSMeso() {
+	private Recipe recipeMusaka() {
+		final Recipe musaka = this.musaka();
+		musaka.setAuthor(this.Loren());
+		return musaka;
+	}
+
+	private Recipe oriz(){
 		final Recipe orizSMeso = new Recipe();
 		orizSMeso.setCategory(Category.MAIN);
-		orizSMeso.setIngredients(orizSMesoIngredients());
-		String instructions = "Svinskoto meso se narqzva na kubcheta i se zapurjva v malko olio. Dobavqt se narqzanite sitno luk i nasturganiqt morkov. Posolqva se, dobavq se voda i se ostavq da vri do gotovnost. Dobavq se orizut,ovkusq se s podpravki i se prehvurlq v namaslena tava. Zapicha se v umerena furna do poemane na vodata ot oriza.";
+		orizSMeso.setIngredients(this.orizSMesoIngredients());
+		final String instructions = "Svinskoto meso se narqzva na kubcheta i se zapurjva v malko olio. Dobavqt se narqzanite sitno luk i nasturganiqt morkov. Posolqva se, dobavq se voda i se ostavq da vri do gotovnost. Dobavq se orizut,ovkusq se s podpravki i se prehvurlq v namaslena tava. Zapicha se v umerena furna do poemane na vodata ot oriza.";
 		orizSMeso.setInstructions(instructions);
 		orizSMeso.setName("Oriz s meso");
 		orizSMeso.setServings(6d);
@@ -87,8 +91,14 @@ public class AddExampleResources {
 		return orizSMeso;
 	}
 
+	private Recipe recipeOrizSMeso() {
+		final Recipe oriz = this.oriz();
+		oriz.setAuthor(this.Loren());
+		return oriz;
+	}
+
 	private List<Nutrient> orizSMesoIngredients() {
-		List<Nutrient> ingredients = new LinkedList<Nutrient>();
+		final List<Nutrient> ingredients = new LinkedList<Nutrient>();
 		Nutrient nutrient = null;
 		{
 			nutrient = new Nutrient();
@@ -133,12 +143,11 @@ public class AddExampleResources {
 		return ingredients;
 	}
 
-	// gotovo?
-	private Recipe recipeSpaghetti() {
+	private Recipe spageti(){
 		final Recipe spaghetti = new Recipe();
 		spaghetti.setCategory(Category.MAIN);
-		spaghetti.setIngredients(spaghettiIngredients());
-		String instructions = "Spagetite se varqt v podsolena voda, kogato sa gotovi se otcejdat. V tendjerka se zapurjva lukut do zlatisto, posle se dobavq natroshenata kaima. Dobavqt se podpravkite i se razburkvat. Domatite se obelvat i se nasturgvat pri kaimata. Burka se i se vari do sgustqvane. Spagetite se zalivat sus sosa i se servirat.";
+		spaghetti.setIngredients(this.spaghettiIngredients());
+		final String instructions = "Spagetite se varqt v podsolena voda, kogato sa gotovi se otcejdat. V tendjerka se zapurjva lukut do zlatisto, posle se dobavq natroshenata kaima. Dobavqt se podpravkite i se razburkvat. Domatite se obelvat i se nasturgvat pri kaimata. Burka se i se vari do sgustqvane. Spagetite se zalivat sus sosa i se servirat.";
 		spaghetti.setInstructions(instructions);
 		spaghetti.setName("Spaghetti");
 		spaghetti.setServings(1d);
@@ -147,8 +156,14 @@ public class AddExampleResources {
 		return spaghetti;
 	}
 
+	private Recipe recipeSpaghetti() {
+		final Recipe spageti = this.spageti();
+		spageti.setAuthor(this.Loren());
+		return spageti;
+	}
+
 	private List<Nutrient> spaghettiIngredients() {
-		List<Nutrient> ingredients = new LinkedList<Nutrient>();
+		final List<Nutrient> ingredients = new LinkedList<Nutrient>();
 		Nutrient nutrient = null;
 		{
 			nutrient = new Nutrient();
@@ -204,7 +219,7 @@ public class AddExampleResources {
 	}
 
 	private List<Nutrient> musakaIngredients() {
-		List<Nutrient> ingredients = new LinkedList<Nutrient>();
+		final List<Nutrient> ingredients = new LinkedList<Nutrient>();
 		Nutrient nutrient = null;
 		{
 			nutrient = new Nutrient();
@@ -267,16 +282,17 @@ public class AddExampleResources {
 	// gotovo
 	List<Recipe> favorites() {
 		final List<Recipe> favorites = new LinkedList<Recipe>();
-		favorites.add(this.recipeMusaka());
-		favorites.add(this.recipeSpaghetti());
+		favorites.add(this.musaka());
+		favorites.add(this.spageti());
 		return favorites;
 	}
 
 	private Person Loren() {
 		final Person Loren = new Person();
-		Loren.setId(100l);
 		Loren.setAge(21);
 		Loren.setFavorites(this.favorites());
+		Loren.setRecipes(this.favorites());
+		Loren.getRecipes().add(this.oriz());
 		Loren.setHashAuth("123456");
 		Loren.setHeight(178.50);
 		Loren.setName("Loren");
@@ -284,18 +300,20 @@ public class AddExampleResources {
 		return Loren;
 	}
 
+	private List<Recipe> getRecipes(){
+		final List<Recipe> recipes = new ArrayList<>();
+		recipes.add(this.recipeMusaka());
+		recipes.add(this.recipeOrizSMeso());
+		recipes.add(this.recipeSpaghetti());
+		return recipes;
+	}
+
 	@GET
 	@Path("/createRecipes")
 	public void createRecipe() {
-		new RecipesDao().create(this.recipeMusaka());
-		new RecipesDao().create(this.recipeOrizSMeso());
-		new RecipesDao().create(this.recipeSpaghetti());
+		final RecipesDao dao = new RecipesDao();
+		for(final Recipe recipe: this.getRecipes()){
+			dao.create(recipe);
+		}
 	}
-
-	@GET
-	@Path("/Person")
-	public void createUserRecipe() {
-		new PersonDao().create(this.Loren());
-	}
-
 }
